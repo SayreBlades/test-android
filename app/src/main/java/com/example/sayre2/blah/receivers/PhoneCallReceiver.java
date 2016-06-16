@@ -42,8 +42,8 @@ public class PhoneCallReceiver extends BroadcastReceiver {
                         endCall.setAccessible(true);
                         Object result = endCall.invoke(telephonyService);
                         Log.i(TAG, result.toString());
-                        String phoneNumber = telephonyManager.getLine1Number();
-                        Toast.makeText(context, "in"+phoneNumber, Toast.LENGTH_LONG).show();
+//                        String phoneNumber = telephonyManager.getLine1Number();
+                        Toast.makeText(context, incomingNumber, Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
                         Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
                     }
@@ -52,22 +52,7 @@ public class PhoneCallReceiver extends BroadcastReceiver {
                 }
             }
         },PhoneStateListener.LISTEN_CALL_STATE);
-//        try {
-//            Class clazz = Class.forName(telephonyManager.getClass().getName());
-//            Method method = clazz.getDeclaredMethod("getITelephony");
-//            method.setAccessible(true);
-//            Object telephonyService = method.invoke(telephonyManager);
-//            Method endCall = telephonyService.getClass().getDeclaredMethod("endCall");
-//            endCall.setAccessible(true);
-//            Object result = endCall.invoke(telephonyService);
-//            Log.i(TAG, result.toString());
-//            String phoneNumber = telephonyManager.getLine1Number();
-//            Toast.makeText(context, "in"+phoneNumber, Toast.LENGTH_LONG).show();
-//        } catch (Exception e) {
-//            Toast.makeText(context, e.toString(), Toast.LENGTH_LONG).show();
-//        }
-//        //Turn OFF the mute
-//        audioManager.setStreamMute(AudioManager.STREAM_RING, false);
+
 
     }
 
